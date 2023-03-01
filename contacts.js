@@ -22,8 +22,8 @@ const getContactById = async (contactId) => {
       return `Product with id-${contactId} not found`;
     }
     return contact;
-  } catch (error) {
-    console.log(error.message);
+  } catch (e) {
+    console.log(e.message);
   }
 };
 
@@ -35,8 +35,8 @@ const removeContact = async (contactId) => {
     );
     await fs.writeFile(contactsPath, JSON.stringify(filterContacts));
     return listContacts();
-  } catch (error) {
-    console.log(error.message);
+  } catch (e) {
+    console.log(e.message);
   }
 };
 
@@ -47,8 +47,8 @@ const addContact = async ({ name, email, phone }) => {
     contacts.push(newContact);
     await fs.writeFile(contactsPath, JSON.stringify(contacts));
     return newContact;
-  } catch (error) {
-    console.log(error.message);
+  } catch (e) {
+    console.log(e.message);
   }
 };
 
